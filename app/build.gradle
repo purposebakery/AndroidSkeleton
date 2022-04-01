@@ -46,6 +46,7 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':design')
 
     implementation "androidx.core:core-ktx:$versions.androidxCore"
 
@@ -53,11 +54,11 @@ dependencies {
     implementation "androidx.compose.material:material:$versions.androidxCompose"
     implementation "androidx.compose.ui:ui-tooling-preview:$versions.androidxCompose"
     debugImplementation "androidx.compose.ui:ui-tooling:$versions.androidxCompose"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$versions.androidxCompose"
 
     implementation "androidx.activity:activity-compose:$versions.androidxActivityCompose"
 
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.androidxLifecycle"
 
-    testImplementation "junit:junit:$versions.junit"
 }
+
+apply from: '../dependencies_unittests.gradle'

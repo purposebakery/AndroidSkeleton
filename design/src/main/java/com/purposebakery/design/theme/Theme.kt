@@ -1,4 +1,4 @@
-package com.purposebakery.androidskeleton.ui.theme
+package com.purposebakery.design.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

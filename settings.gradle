@@ -14,4 +14,8 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Android Skeleton"
 
+// Main application module
 include ':app'
+
+// Design library module
+include ':design'

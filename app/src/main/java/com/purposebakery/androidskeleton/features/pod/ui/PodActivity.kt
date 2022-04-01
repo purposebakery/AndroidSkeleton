@@ -1,4 +1,4 @@
-package com.purposebakery.androidskeleton
+package com.purposebakery.androidskeleton.features.pod.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,9 +10,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.purposebakery.androidskeleton.ui.theme.AndroidSkeletonTheme
+import com.purposebakery.design.theme.AndroidSkeletonTheme
 
-class MainActivity : ComponentActivity() {
+class PodActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
