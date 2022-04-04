@@ -27,11 +27,6 @@ buildscript {
     ext.versionGradleAndroidLibrary = '7.1.2' // https://mvnrepository.com/artifact/com.android.library/com.android.library.gradle.plugin
     ext.versionJetbrainsKotlinAndroid = '1.6.10' // https://mvnrepository.com/artifact/org.jetbrains.kotlin.android/org.jetbrains.kotlin.android.gradle.plugin?repo=gradle-plugins
 
-    repositories {
-        mavenCentral()
-        google()
-    }
-
     dependencies {
         classpath "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
     }
