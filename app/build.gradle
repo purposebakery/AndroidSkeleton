@@ -5,6 +5,10 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+ext {
+    builtTypeClass = "com.purposebakery.androidskeleton.framework.configuration.BuildType"
+}
+
 android {
     compileSdk versions.compileSdk
 
@@ -22,9 +26,15 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            buildConfigField "String", "API_KEY_DATA_GOV", apiKeyDataGov
+            buildConfigField(project.ext.builtTypeClass, "BUILD_TYPE_ENUM", "${project.ext.builtTypeClass}.DEBUG")
+        }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_KEY_DATA_GOV", apiKeyDataGov
+            buildConfigField(project.ext.builtTypeClass, "BUILD_TYPE_ENUM", "${project.ext.builtTypeClass}.RELEASE")
         }
     }
     compileOptions {
