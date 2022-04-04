@@ -21,8 +21,10 @@ buildscript {
             // logging
             'timber'                  : '5.0.1', // https://mvnrepository.com/artifact/com.jakewharton.timber/timber
 
-            // junit
+            // unit testing
             'junit'                   : '4.13.2', // https://mvnrepository.com/artifact/junit/junit
+            'archCoreTesting'         : '2.1.0', // https://mvnrepository.com/artifact/androidx.arch.core/core-testing
+            'mockitoKotlin'           : '4.0.0', // https://mvnrepository.com/artifact/org.mockito.kotlin/mockito-kotlin
     ]
 
     // Plugins
