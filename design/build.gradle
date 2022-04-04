@@ -23,11 +23,17 @@ android {
     kotlinOptions {
         jvmTarget = versions.kotlinJvmTarget
     }
-}
-
-dependencies {
-    implementation "androidx.compose.ui:ui:$versions.androidxCompose"
-    implementation "androidx.compose.material:material:$versions.androidxCompose"
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion versions.androidxCompose
+    }
 }
 
 apply from: '../dependencies_unittests.gradle'
+apply from: '../dependencies_compose.gradle'
+
+dependencies {
+
+}
