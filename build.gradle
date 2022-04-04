@@ -18,14 +18,20 @@ buildscript {
             'androidxActivityCompose' : '1.4.0', // https://mvnrepository.com/artifact/androidx.activity/activity-compose?repo=google
             'androidxLifecycle'       : '2.4.1', // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-runtime-ktx
 
+            // logging
+            'timber'                  : '5.0.1', // https://mvnrepository.com/artifact/com.jakewharton.timber/timber
+
             // junit
             'junit'                   : '4.13.2', // https://mvnrepository.com/artifact/junit/junit
     ]
 
     // Plugins
-    ext.versionGradleAndroidApplication = '7.1.2' // https://mvnrepository.com/artifact/com.android.application/com.android.application.gradle.plugin
-    ext.versionGradleAndroidLibrary = '7.1.2' // https://mvnrepository.com/artifact/com.android.library/com.android.library.gradle.plugin
-    ext.versionJetbrainsKotlinAndroid = '1.6.10' // https://mvnrepository.com/artifact/org.jetbrains.kotlin.android/org.jetbrains.kotlin.android.gradle.plugin?repo=gradle-plugins
+    ext.versionGradleAndroidApplication = '7.1.2'
+    // https://mvnrepository.com/artifact/com.android.application/com.android.application.gradle.plugin
+    ext.versionGradleAndroidLibrary = '7.1.2'
+    // https://mvnrepository.com/artifact/com.android.library/com.android.library.gradle.plugin
+    ext.versionJetbrainsKotlinAndroid = '1.6.10'
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlin.android/org.jetbrains.kotlin.android.gradle.plugin?repo=gradle-plugins
 
     dependencies {
         classpath "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"

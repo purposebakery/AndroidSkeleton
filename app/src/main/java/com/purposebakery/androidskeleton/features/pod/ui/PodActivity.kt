@@ -28,9 +28,8 @@ class PodActivity : BaseActivity() {
 
     @Composable
     override fun Content() {
-        val buttonText by viewModel.loadButtonTextLiveData.observeAsState("")
         PodContent(
-            buttonText = buttonText,
+            buttonText = viewModel.loadButtonText.observeAsState("").value,
             buttonPressed = viewModel::onPodButtonPressed
         )
     }

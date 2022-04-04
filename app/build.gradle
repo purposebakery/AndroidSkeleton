@@ -72,6 +72,9 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$versions.androidxCompose"
     implementation "androidx.activity:activity-compose:$versions.androidxActivityCompose"
 
+    // Logging
+    implementation "com.jakewharton.timber:timber:$versions.timber"
+
     // Architecture Components
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.androidxLifecycle"
 }
