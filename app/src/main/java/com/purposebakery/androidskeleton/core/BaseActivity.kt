@@ -1,4 +1,4 @@
-package com.purposebakery.androidskeleton.common
+package com.purposebakery.androidskeleton.core
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

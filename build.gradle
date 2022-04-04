@@ -9,6 +9,9 @@ buildscript {
             'javaCompileCompatibility': JavaVersion.VERSION_11,
             'kotlinJvmTarget'         : '11',
 
+            // hilt
+            'hilt'                    : '2.41', // https://mvnrepository.com/artifact/com.google.dagger/hilt-android-gradle-plugin
+
             // androidx
             'androidxCore'            : '1.7.0', // https://mvnrepository.com/artifact/androidx.core/core-ktx
             'androidxCompose'         : '1.1.1', // https://mvnrepository.com/artifact/androidx.compose.ui/ui
@@ -18,12 +21,26 @@ buildscript {
             // junit
             'junit'                   : '4.13.2', // https://mvnrepository.com/artifact/junit/junit
     ]
+
+    // Plugins
+    ext.versionGradleAndroidApplication = '7.1.2' // https://mvnrepository.com/artifact/com.android.application/com.android.application.gradle.plugin
+    ext.versionGradleAndroidLibrary = '7.1.2' // https://mvnrepository.com/artifact/com.android.library/com.android.library.gradle.plugin
+    ext.versionJetbrainsKotlinAndroid = '1.6.10' // https://mvnrepository.com/artifact/org.jetbrains.kotlin.android/org.jetbrains.kotlin.android.gradle.plugin?repo=gradle-plugins
+
+    repositories {
+        mavenCentral()
+        google()
+    }
+
+    dependencies {
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+    }
 }
 
 plugins {
-    id 'com.android.application' version '7.1.2' apply false // https://mvnrepository.com/artifact/com.android.application/com.android.application.gradle.plugin
-    id 'com.android.library' version '7.1.2' apply false // https://mvnrepository.com/artifact/com.android.library/com.android.library.gradle.plugin
-    id 'org.jetbrains.kotlin.android' version '1.6.10' apply false // https://mvnrepository.com/artifact/org.jetbrains.kotlin.android/org.jetbrains.kotlin.android.gradle.plugin?repo=gradle-plugins
+    id 'com.android.application' version "$versionGradleAndroidApplication" apply false
+    id 'com.android.library' version "$versionGradleAndroidLibrary" apply false
+    id 'org.jetbrains.kotlin.android' version "$versionJetbrainsKotlinAndroid" apply false
 }
 
 task clean(type: Delete) {

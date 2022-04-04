@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -45,14 +47,27 @@ android {
     }
 }
 
+kapt {
+    // Allow references to generated code
+    correctErrorTypes = true
+}
+
 apply from: '../dependencies_unittests.gradle'
 apply from: '../dependencies_compose.gradle'
 
 dependencies {
     implementation project(path: ':design')
 
+    // Core
     implementation "androidx.core:core-ktx:$versions.androidxCore"
 
+    // Dependency Injection
+    implementation "com.google.dagger:hilt-android:$versions.hilt"
+    kapt "com.google.dagger:hilt-compiler:$versions.hilt"
+
+    // Compose
     implementation "androidx.activity:activity-compose:$versions.androidxActivityCompose"
+
+    // Architecture Components
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.androidxLifecycle"
 }
