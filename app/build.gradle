@@ -82,6 +82,14 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$versions.androidxCompose"
     implementation "androidx.activity:activity-compose:$versions.androidxActivityCompose"
 
+    // UI
+    implementation "io.coil-kt:coil-compose:$versions.coil"
+
+    // Network
+    implementation "com.squareup.okhttp3:logging-interceptor:$versions.okHttpLoggingInterceptor"
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+
     // Logging
     implementation "com.jakewharton.timber:timber:$versions.timber"
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pod_image_content_description">Picture of the day</string>
     <string name="pod_nasa_image_content_description">Nasa logo</string>
     <string name="pod_load_button">Load picture of the day!</string>
     <string name="pod_reload_button">Reload picture of the day!</string>

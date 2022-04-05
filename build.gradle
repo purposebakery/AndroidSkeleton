@@ -18,6 +18,13 @@ buildscript {
             'androidxActivityCompose' : '1.4.0', // https://mvnrepository.com/artifact/androidx.activity/activity-compose?repo=google
             'androidxLifecycle'       : '2.4.1', // https://mvnrepository.com/artifact/androidx.lifecycle/lifecycle-runtime-ktx
 
+            // network
+            'okHttpLoggingInterceptor': '4.9.3', // https://mvnrepository.com/artifact/com.squareup.okhttp3/logging-interceptor
+            'retrofit'                : '2.9.0', // https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
+
+            // ui
+            'coil'                    : '2.0.0-rc02', // https://mvnrepository.com/artifact/io.coil-kt/coil-compose
+
             // logging
             'timber'                  : '5.0.1', // https://mvnrepository.com/artifact/com.jakewharton.timber/timber
 
