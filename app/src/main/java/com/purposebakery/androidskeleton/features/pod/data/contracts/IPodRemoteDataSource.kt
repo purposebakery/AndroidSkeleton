@@ -10,5 +10,5 @@ interface IPodRemoteDataSource {
 
 interface PodService {
     @GET("planetary/apod")
-    suspend fun getPod(@Query("api_key") apiKey : String) : Pod
+    suspend fun getPod(@Query("api_key") apiKey: String): Pod
 }

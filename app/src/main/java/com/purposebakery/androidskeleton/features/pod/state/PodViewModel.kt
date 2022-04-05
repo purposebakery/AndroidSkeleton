@@ -33,7 +33,7 @@ class PodViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 podUrlMutable.value = podRepository.getPod().url
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 Timber.e(e)
                 // TODO handle loading errors
             }

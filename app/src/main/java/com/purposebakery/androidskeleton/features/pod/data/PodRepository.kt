@@ -7,7 +7,7 @@ import javax.inject.Inject
 class PodRepository @Inject constructor(
     private val podRemoteDataSource: PodRemoteDataSource
 ) : IPodRepository {
-    override suspend fun getPod() : Pod {
+    override suspend fun getPod(): Pod {
         return podRemoteDataSource.requestPod()
     }
 }

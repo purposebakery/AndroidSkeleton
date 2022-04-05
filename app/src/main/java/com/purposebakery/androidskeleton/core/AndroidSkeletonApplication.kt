@@ -8,7 +8,8 @@ import javax.inject.Inject
 @HiltAndroidApp
 class AndroidSkeletonApplication : Application() {
 
-    @Inject lateinit var timberFramework : ITimberFramework
+    @Inject
+    lateinit var timberFramework: ITimberFramework
 
     override fun onCreate() {
         super.onCreate()

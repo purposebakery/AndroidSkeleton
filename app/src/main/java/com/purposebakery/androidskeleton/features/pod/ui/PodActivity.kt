@@ -5,13 +5,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -92,8 +90,7 @@ fun PodImage(
             .build(),
         //placeholder = painterResource(R.drawable.placeholder),
         contentDescription = stringResource(R.string.pod_image_content_description),
-        contentScale = ContentScale.Crop,
-        modifier = Modifier.clip(CircleShape)
+        contentScale = ContentScale.Crop
     )
 }
 
