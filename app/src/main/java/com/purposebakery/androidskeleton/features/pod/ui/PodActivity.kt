@@ -1,11 +1,11 @@
 package com.purposebakery.androidskeleton.features.pod.ui
 
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -14,7 +14,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.purposebakery.androidskeleton.R
-import com.purposebakery.androidskeleton.core.BaseActivity
+import com.purposebakery.androidskeleton.core.BaseUiStateActivity
+import com.purposebakery.androidskeleton.framework.configuration.checkNotRelease
 import com.purposebakery.design.components.buttons.CDButton
 import com.purposebakery.design.components.images.CDImage
 import com.purposebakery.design.theme.AndroidSkeletonTheme
@@ -22,28 +23,29 @@ import com.purposebakery.design.theme.SizeX1
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PodActivity : BaseActivity() {
-    private val viewModel: PodViewModel by viewModels()
+class PodActivity : BaseUiStateActivity<PodUiState>() {
+    override val viewModel: PodViewModel by viewModels()
 
     @Composable
-    override fun Content() {
+    override fun MainContent(uiState: PodUiState) {
         PodContent(
-            buttonText = viewModel.loadButtonText.observeAsState("").value,
-            buttonPressed = viewModel::onPodButtonPressed,
-            podUrl = viewModel.podUrl.observeAsState(null).value
+            uiState = uiState,
+            onPodButtonPressed = viewModel::onPodButtonPressed
         )
     }
 }
 
 @Composable
 fun PodContent(
-    buttonText: String,
-    buttonPressed: () -> Unit,
-    podUrl: String?
+    uiState: PodUiState,
+    onPodButtonPressed: () -> Unit
 ) {
+    val buttonText = uiState.loadButtonText
+    val podUrl = uiState.podUrl
+
     Column {
         PodNasaLogo()
-        PodLoadButton(buttonText, buttonPressed)
+        PodLoadButton(buttonText, onPodButtonPressed)
         PodImage(podUrl)
     }
 }
@@ -87,11 +89,21 @@ fun PodImage(
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
+    checkNotRelease()
     AndroidSkeletonTheme {
         PodContent(
-            buttonText = "Button Text Preview",
-            buttonPressed = {},
-            podUrl = "https://apod.nasa.gov/apod/image/2204/VortexAurora_Suarez_1080.jpg"
+            PodUiState().apply {
+
+            },
+            previewCallback()
         )
+    }
+}
+
+@Composable
+fun previewCallback(): () -> Unit {
+    val context = LocalContext.current
+    return {
+        Toast.makeText(context, "No preview for this action.", Toast.LENGTH_SHORT).show()
     }
 }

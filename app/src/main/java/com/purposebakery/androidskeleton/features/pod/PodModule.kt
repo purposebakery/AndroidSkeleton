@@ -1,10 +1,6 @@
 package com.purposebakery.androidskeleton.features.pod
 
-import com.purposebakery.androidskeleton.features.pod.data.PodRemoteDataSource
-import com.purposebakery.androidskeleton.features.pod.data.PodRepository
-import com.purposebakery.androidskeleton.features.pod.data.PodService
-import com.purposebakery.androidskeleton.features.pod.data.contracts.IPodRemoteDataSource
-import com.purposebakery.androidskeleton.features.pod.data.contracts.IPodRepository
+import com.purposebakery.androidskeleton.features.pod.data.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
