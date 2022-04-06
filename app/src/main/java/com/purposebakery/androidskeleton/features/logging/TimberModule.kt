@@ -1,5 +1,7 @@
-package com.purposebakery.androidskeleton.framework.timber
+package com.purposebakery.androidskeleton.features.logging
 
+import com.purposebakery.androidskeleton.features.logging.domain.ITimberFramework
+import com.purposebakery.androidskeleton.features.logging.domain.TimberFramework
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

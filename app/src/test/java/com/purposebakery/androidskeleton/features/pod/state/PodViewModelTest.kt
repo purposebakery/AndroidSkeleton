@@ -1,6 +1,7 @@
 package com.purposebakery.androidskeleton.features.pod.state
 
 import com.purposebakery.androidskeleton.R
+import com.purposebakery.androidskeleton.features.pod.ui.PodViewModel
 import com.purposebakery.androidskeleton.test.core.BaseViewModelTest
 import com.purposebakery.androidskeleton.test.extensions.assertEqualsStringResource
 import org.junit.Before

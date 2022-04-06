@@ -1,4 +1,4 @@
-package com.purposebakery.androidskeleton.features.pod.state
+package com.purposebakery.androidskeleton.features.pod.ui
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.purposebakery.androidskeleton.R
-import com.purposebakery.androidskeleton.features.pod.data.contracts.IPodRepository
+import com.purposebakery.androidskeleton.features.pod.data.IPodRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber

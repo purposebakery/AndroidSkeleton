@@ -1,28 +1,24 @@
 package com.purposebakery.androidskeleton.features.pod.ui
 
 import androidx.activity.viewModels
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.purposebakery.androidskeleton.R
 import com.purposebakery.androidskeleton.core.BaseActivity
-import com.purposebakery.androidskeleton.features.pod.state.PodViewModel
+import com.purposebakery.design.components.buttons.CDButton
+import com.purposebakery.design.components.images.CDImage
 import com.purposebakery.design.theme.AndroidSkeletonTheme
+import com.purposebakery.design.theme.SizeX1
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -54,10 +50,9 @@ fun PodContent(
 
 @Composable
 fun PodNasaLogo() {
-    val image: Painter = painterResource(id = R.drawable.nasa_logo)
-    Image(
-        painter = image,
-        contentDescription = LocalContext.current.getString(R.string.pod_nasa_image_content_description)
+    CDImage(
+        imageResourceId = R.drawable.nasa_logo,
+        contentDescription = R.string.pod_nasa_image_content_description
     )
 }
 
@@ -66,16 +61,12 @@ fun PodLoadButton(
     buttonText: String,
     buttonPressed: () -> Unit
 ) {
-    Button(
-        content = {
-            Text(
-                text = buttonText,
-            )
-        },
+    CDButton(
+        text = buttonText,
         onClick = buttonPressed,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(SizeX1)
     )
 }
 
@@ -88,7 +79,6 @@ fun PodImage(
             .data(podUrl)
             .crossfade(true)
             .build(),
-        //placeholder = painterResource(R.drawable.placeholder),
         contentDescription = stringResource(R.string.pod_image_content_description),
         contentScale = ContentScale.Crop
     )

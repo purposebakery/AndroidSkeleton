@@ -1,7 +1,7 @@
 package com.purposebakery.androidskeleton.core
 
 import android.app.Application
-import com.purposebakery.androidskeleton.framework.timber.ITimberFramework
+import com.purposebakery.androidskeleton.features.logging.domain.ITimberFramework
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 

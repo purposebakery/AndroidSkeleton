@@ -2,17 +2,28 @@ package com.purposebakery.design.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.purposebakery.design.R
+
+val fontNasalization = FontFamily(
+    Font(R.font.nasalization)
+)
 
 // Set of Material typography styles to start with
 val Typography = Typography(
     body1 = TextStyle(
-        fontFamily = FontFamily.Default,
+        fontFamily = fontNasalization,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp
-    )
+    ),
+    button = TextStyle(
+        fontFamily = fontNasalization,
+        fontWeight = FontWeight.W500,
+        fontSize = 14.sp
+    ),
     /* Other default text styles to override
     button = TextStyle(
         fontFamily = FontFamily.Default,
