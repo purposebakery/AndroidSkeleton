@@ -1,7 +1,7 @@
 package com.purposebakery.androidskeleton.features.pod.data
 
 import com.purposebakery.androidskeleton.BuildConfig
-import com.purposebakery.androidskeleton.features.pod.domain.Pod
+import com.purposebakery.androidskeleton.features.pod.data.models.Pod
 import javax.inject.Inject
 
 interface IPodRemoteDataSource {

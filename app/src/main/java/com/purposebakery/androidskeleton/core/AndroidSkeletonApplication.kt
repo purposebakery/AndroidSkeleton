@@ -1,7 +1,7 @@
 package com.purposebakery.androidskeleton.core
 
 import android.app.Application
-import com.purposebakery.androidskeleton.features.logging.domain.ITimberFramework
+import com.purposebakery.androidskeleton.framework.timber.IInitializeTimberUseCase
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
@@ -9,11 +9,11 @@ import javax.inject.Inject
 class AndroidSkeletonApplication : Application() {
 
     @Inject
-    lateinit var timberFramework: ITimberFramework
+    lateinit var initializeTimberUseCase: IInitializeTimberUseCase
 
     override fun onCreate() {
         super.onCreate()
 
-        timberFramework.initialize()
+        initializeTimberUseCase()
     }
 }

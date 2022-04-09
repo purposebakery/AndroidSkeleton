@@ -20,9 +20,3 @@ fun forBuildTypes(
         }
     }
 }
-
-fun checkNotRelease() {
-    forBuildTypes(release = {
-        throw IllegalStateException("This is release. Shame on you.")
-    })
-}

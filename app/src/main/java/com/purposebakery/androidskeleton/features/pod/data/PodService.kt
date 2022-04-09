@@ -1,6 +1,6 @@
 package com.purposebakery.androidskeleton.features.pod.data
 
-import com.purposebakery.androidskeleton.features.pod.domain.Pod
+import com.purposebakery.androidskeleton.features.pod.data.models.Pod
 import retrofit2.http.GET
 import retrofit2.http.Query
 

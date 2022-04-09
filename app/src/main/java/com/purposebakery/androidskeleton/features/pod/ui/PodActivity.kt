@@ -15,7 +15,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.purposebakery.androidskeleton.R
 import com.purposebakery.androidskeleton.core.BaseUiStateActivity
-import com.purposebakery.androidskeleton.framework.configuration.checkNotRelease
+import com.purposebakery.androidskeleton.framework.configuration.CheckNotReleaseUseCase
 import com.purposebakery.design.components.buttons.CDButton
 import com.purposebakery.design.components.images.CDImage
 import com.purposebakery.design.theme.AndroidSkeletonTheme
@@ -28,10 +28,12 @@ class PodActivity : BaseUiStateActivity<PodUiState>() {
 
     @Composable
     override fun MainContent(uiState: PodUiState) {
+        DefaultPreview()
+        /*
         PodContent(
             uiState = uiState,
             onPodButtonPressed = viewModel::onPodButtonPressed
-        )
+        )*/
     }
 }
 
@@ -88,12 +90,13 @@ fun PodImage(
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
-    checkNotRelease()
+private fun DefaultPreview() {
+    CheckNotReleaseUseCase()
     AndroidSkeletonTheme {
         PodContent(
             PodUiState().apply {
-
+                loadButtonText = "Load Button Text Private"
+                podUrl = ""
             },
             previewCallback()
         )
@@ -101,7 +104,7 @@ fun DefaultPreview() {
 }
 
 @Composable
-fun previewCallback(): () -> Unit {
+private fun previewCallback(): () -> Unit {
     val context = LocalContext.current
     return {
         Toast.makeText(context, "No preview for this action.", Toast.LENGTH_SHORT).show()

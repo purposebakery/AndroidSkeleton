@@ -1,4 +1,4 @@
-package com.purposebakery.androidskeleton.features.pod.domain
+package com.purposebakery.androidskeleton.features.pod.data.models
 
 data class Pod(
     val title: String,
