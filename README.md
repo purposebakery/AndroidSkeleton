@@ -1,6 +1,6 @@
 Personal interpretation of the ideal Android application skeleton for medium size apps
 
-Also this project is somewhat and, like a crypto currency, has solutions to problems that don't exist.
+Also this project is somewhat overengineered and, like a crypto currency, has solutions to problems that don't exist.
 
 TODOs:
 - release signing
