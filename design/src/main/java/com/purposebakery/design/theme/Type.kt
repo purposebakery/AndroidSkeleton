@@ -14,11 +14,6 @@ val fontNasalization = FontFamily(
 
 // Set of Material typography styles to start with
 val Typography = Typography(
-    body1 = TextStyle(
-        fontFamily = fontNasalization,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
-    ),
     button = TextStyle(
         fontFamily = fontNasalization,
         fontWeight = FontWeight.W500,

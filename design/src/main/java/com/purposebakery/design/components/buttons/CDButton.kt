@@ -1,9 +1,9 @@
 package com.purposebakery.design.components.buttons
 
 import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.purposebakery.design.components.typography.CDText
 
 @Composable
 fun CDButton(
@@ -13,7 +13,7 @@ fun CDButton(
 ) {
     Button(
         content = {
-            CDText(
+            Text(
                 text = text,
             )
         },

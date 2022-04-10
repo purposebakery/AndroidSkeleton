@@ -4,6 +4,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -26,6 +28,7 @@ fun CDImage(
 ) {
     val image: Painter = painterResource(imageResourceId)
     Image(
+        alignment = Alignment.Center,
         painter = image,
         contentDescription = contentDescription
     )

@@ -43,7 +43,13 @@ class PodViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 _uiState.update {
-                    it.copy(podUrl = podRepository.getPod().url)
+                    val pod = podRepository.getPod()
+                    it.copy(
+                        podUrl = pod.url,
+                        podExplanation = pod.explanation,
+                        podTitle = pod.title,
+                        podDate = pod.date
+                    )
                 }
             } catch (e: Exception) {
                 Timber.e(e)
