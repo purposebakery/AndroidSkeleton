@@ -28,12 +28,10 @@ class PodActivity : BaseUiStateActivity<PodUiState>() {
 
     @Composable
     override fun MainContent(uiState: PodUiState) {
-        DefaultPreview()
-        /*
         PodContent(
             uiState = uiState,
             onPodButtonPressed = viewModel::onPodButtonPressed
-        )*/
+        )
     }
 }
 

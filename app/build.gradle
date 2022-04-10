@@ -25,6 +25,15 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            keyAlias purposebakeryKeyAlias
+            keyPassword purposebakeryKeyPassword
+            storePassword purposebakeryStorePassword
+            storeFile file(purposebakeryStoreFile)
+        }
+    }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -35,8 +44,10 @@ android {
             minifyEnabled false
             buildConfigField "String", "API_KEY_DATA_GOV", apiKeyDataGov
             buildConfigField(project.ext.builtTypeClass, "BUILD_TYPE_ENUM", "${project.ext.builtTypeClass}.RELEASE")
+            signingConfig signingConfigs.release
         }
     }
+
     compileOptions {
         sourceCompatibility versions.javaCompileCompatibility
         targetCompatibility versions.javaCompileCompatibility
