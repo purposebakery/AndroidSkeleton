@@ -2,12 +2,15 @@ package com.purposebakery.androidskeleton.features.pod.ui
 
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,10 +27,7 @@ import com.purposebakery.androidskeleton.R
 import com.purposebakery.androidskeleton.core.BaseUiStateActivity
 import com.purposebakery.androidskeleton.framework.configuration.CheckNotReleaseUseCase
 import com.purposebakery.design.components.buttons.CDButton
-import com.purposebakery.design.theme.AndroidSkeletonTheme
-import com.purposebakery.design.theme.SizeX1
-import com.purposebakery.design.theme.SizeX2
-import com.purposebakery.design.theme.Typography
+import com.purposebakery.design.theme.*
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,13 +50,42 @@ fun PodContent(
 ) {
     val buttonText = uiState.loadButtonText
     val podUrl = uiState.podUrl
+    val podLoading = uiState.podLoading
 
     Column(
         modifier = Modifier.verticalScroll(rememberScrollState())
     ) {
-        PodLoadButton(buttonText, onPodButtonPressed)
+
         PodImage(podUrl)
         PodInformation(uiState.podTitle, uiState.podExplanation, uiState.podDate)
+
+        PodLoadButton(buttonText, onPodButtonPressed)
+
+        AnimatedVisibility(
+            visible = podLoading,
+            modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+        ) {
+            CircularProgressIndicator(
+                modifier = Modifier.padding(SizeX4)
+            )
+        }
+
+        UserMessage(uiState.userMessage)
+
+    }
+}
+
+@Composable
+fun UserMessage(userMessage: String?) {
+    AnimatedVisibility(
+        visible = userMessage != null,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Text(
+            text = userMessage ?: "",
+            modifier = Modifier
+                .padding(start = SizeX2, end = SizeX2, top = SizeX1)
+        )
     }
 }
 
@@ -89,20 +118,20 @@ fun PodLoadButton(
 fun PodImage(
     podUrl: String?
 ) {
-    if (podUrl == null) {
-        PodNasaLogo()
-    } else {
-        AsyncImage(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(SizeX2),
-            model = ImageRequest.Builder(LocalContext.current)
-                .data(podUrl)
-                .crossfade(true)
-                .build(),
-            contentDescription = stringResource(R.string.pod_image_content_description),
-            contentScale = ContentScale.Crop
-        )
+    Crossfade(targetState = podUrl == null) { state ->
+        when (state) {
+            true -> PodNasaLogo()
+            false -> AsyncImage(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(podUrl)
+                    .crossfade(true)
+                    .build(),
+                contentDescription = stringResource(R.string.pod_image_content_description),
+                contentScale = ContentScale.Crop
+            )
+        }
     }
 }
 

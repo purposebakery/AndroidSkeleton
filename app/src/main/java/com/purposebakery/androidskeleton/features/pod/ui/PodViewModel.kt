@@ -29,24 +29,25 @@ class PodViewModel @Inject constructor(
     }
 
     fun onPodButtonPressed() {
-        setLoadButtonWithReloadText()
         loadPod()
-    }
-
-    private fun setLoadButtonWithReloadText() {
-        _uiState.update {
-            it.copy(loadButtonText = app.getString(R.string.pod_reload_button))
-        }
     }
 
     private fun loadPod() {
         viewModelScope.launch {
             try {
                 _uiState.update {
+                    it.copy(
+                        userMessage = null,
+                        podLoading = true
+                    )
+                }
+
+                _uiState.update {
                     val pod = podRepository.getPod()
                     it.copy(
                         podUrl = pod.url,
                         podExplanation = pod.explanation,
+                        podLoading = false,
                         podTitle = pod.title,
                         podDate = pod.date
                     )
@@ -54,7 +55,10 @@ class PodViewModel @Inject constructor(
             } catch (e: Exception) {
                 Timber.e(e)
                 _uiState.update {
-                    it.copy(userMessage = app.getString(R.string.pod_load_error))
+                    it.copy(
+                        userMessage = app.getString(R.string.pod_load_error),
+                        podLoading = false
+                    )
                 }
             }
         }
