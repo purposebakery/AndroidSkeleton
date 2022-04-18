@@ -169,12 +169,12 @@ fun PodInformation(
 
 @Preview(showBackground = true)
 @Composable
-private fun DefaultPreview() {
+fun DefaultPreview() {
     CheckNotReleaseUseCase()
     AndroidSkeletonTheme {
         PodContent(
             PodUiState().apply {
-                loadButtonText = "Load Button Text Private"
+                loadButtonText = "Load picture of the day!"
                 podUrl = ""
                 podTitle = "Title"
                 podExplanation = "Explanation"
