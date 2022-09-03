@@ -1,5 +1,0 @@
-dependencies {
-    testImplementation "junit:junit:$versions.junit"
-    testImplementation "org.mockito.kotlin:mockito-kotlin:$versions.mockitoKotlin"
-    testImplementation "androidx.arch.core:core-testing:$versions.archCoreTesting"
-}

@@ -73,19 +73,17 @@ kapt {
     correctErrorTypes = true
 }
 
-apply from: '../dependencies_unittests.gradle'
-
 dependencies {
     implementation project(path: ':design')
 
-    // Core
-    implementation "androidx.core:core-ktx:$versions.androidxCore"
-
-    // Dependency Injection
+    // dependency injection
     implementation "com.google.dagger:hilt-android:$versions.hilt"
     kapt "com.google.dagger:hilt-compiler:$versions.hilt"
 
-    // Compose
+    // core
+    implementation "androidx.core:core-ktx:$versions.androidxCore"
+
+    // compose
     implementation "androidx.compose.ui:ui:$versions.androidxCompose"
     implementation "androidx.compose.material:material:$versions.androidxCompose"
     implementation "androidx.compose.ui:ui-tooling-preview:$versions.androidxCompose"
@@ -96,18 +94,22 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$versions.androidxCompose")
     debugImplementation("androidx.compose.ui:ui-test-manifest:$versions.androidxCompose")
 
-
-    // UI
+    // ui
     implementation "io.coil-kt:coil-compose:$versions.coil"
 
-    // Network
+    // network
     implementation "com.squareup.okhttp3:logging-interceptor:$versions.okHttpLoggingInterceptor"
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
 
-    // Logging
+    // logging
     implementation "com.jakewharton.timber:timber:$versions.timber"
 
-    // Architecture Components
+    // architecture components
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.androidxLifecycle"
+
+    // unit testing
+    testImplementation "junit:junit:$versions.junit"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$versions.mockitoKotlin"
+    testImplementation "androidx.arch.core:core-testing:$versions.archCoreTesting"
 }

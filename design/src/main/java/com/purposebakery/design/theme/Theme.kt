@@ -10,14 +10,14 @@ private val DarkColorPalette = darkColors(
     primary = NasaBlue,
     primaryVariant = NasaBlue,
     secondary = NasaRed,
-    background = Black
+    background = BackgroundDark
 )
 
 private val LightColorPalette = lightColors(
     primary = NasaBlue,
     primaryVariant = NasaBlue,
     secondary = NasaRed,
-    background = White
+    background = BackgroundLight
 )
 
 @Composable
